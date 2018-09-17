@@ -49,5 +49,4 @@ public class CaptureFile {
         CaptureFile main = new CaptureFile();
         main.scan();
     }
-    
 }

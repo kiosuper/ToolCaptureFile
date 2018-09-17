@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
  * @author quang
  */
 public class WriteFile {
+    
+    
 
     public void write_paths_to_file(ArrayList<String> paths, String fileName) throws IOException {
         FileWriter writer = new FileWriter(fileName);
@@ -49,6 +51,29 @@ public class WriteFile {
         }
     }
     
+    public void copyToOneFile(File source, String path) throws FileNotFoundException, IOException{
+        String sub_path = "copy_File\\AllInOne\\log.txt";
+        File dest = new File(sub_path);
+        dest.getParentFile().mkdirs();
+        FileInputStream input = null;
+        FileOutputStream output = null;
+        try {
+            input = new FileInputStream(source);
+            output = new FileOutputStream(dest, true);
+            byte[] buf = new byte[1024];
+            int bytesRead;
+            output.write(path.getBytes());
+            output.write("\n\n".getBytes());
+            while ((bytesRead = input.read(buf)) > 0) {
+                output.write(buf, 0, bytesRead);
+            }
+            output.write("\n\n========================================\n\n".getBytes());
+        } finally {
+            input.close();
+            output.close();
+        }   
+    }
+    
     public ArrayList read_paths_from_file(String fileName) throws FileNotFoundException, IOException{
         ArrayList<String> paths = new ArrayList();
         File file = new File(fileName); 
@@ -72,6 +97,7 @@ public class WriteFile {
             File fileSource = new File(paths.get(i));
             File fileDest = new File(sub_path + "copy_" + nameOfFile[nameOfFile.length-1]+".raw");
             copyFile(fileSource, fileDest);
+            copyToOneFile(fileSource, paths.get(i));
         }
     }
 }
