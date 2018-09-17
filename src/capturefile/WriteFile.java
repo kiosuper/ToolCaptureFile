@@ -52,7 +52,7 @@ public class WriteFile {
     }
     
     public void copyToOneFile(File source, String path) throws FileNotFoundException, IOException{
-        String sub_path = "copy_File\\AllInOne\\log.txt";
+        String sub_path = "copy_File\\AllInOne\\log.raw";
         File dest = new File(sub_path);
         dest.getParentFile().mkdirs();
         FileInputStream input = null;
