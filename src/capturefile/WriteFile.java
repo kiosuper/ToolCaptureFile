@@ -68,9 +68,9 @@ public class WriteFile {
         paths = read_paths_from_file(fileName);
         String regex = "\\\\";
         for(int i=0; i< paths.size(); i++){
-            nameOfFile = paths.get(i).split(regex);
+            nameOfFile = paths.get(i).split(regex); 
             File fileSource = new File(paths.get(i));
-            File fileDest = new File(sub_path + "copy_" + nameOfFile[nameOfFile.length-1]);
+            File fileDest = new File(sub_path + "copy_" + nameOfFile[nameOfFile.length-1]+".raw");
             copyFile(fileSource, fileDest);
         }
     }
