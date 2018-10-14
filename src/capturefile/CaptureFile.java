@@ -12,10 +12,11 @@ import java.util.ArrayList;
  * @author quang
  */
 public class CaptureFile {
-    private static String dirForScan = "F:\\Games\\Banished";//Nhập đường dẫn
+    private static String dirForScan = "F:\\Hking";//Nhập đường dẫn
     private static String paths_file = "all_paths.txt";
     ArrayList<String> list = new ArrayList<>();
     WriteFile writeFile = new WriteFile();
+    
     /**
      * @param args the command line arguments
      */

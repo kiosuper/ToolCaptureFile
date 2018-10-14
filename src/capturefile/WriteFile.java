@@ -15,8 +15,6 @@ import java.util.regex.Pattern;
  */
 public class WriteFile {
     
-    
-
     public void write_paths_to_file(ArrayList<String> paths, String fileName) throws IOException {
         FileWriter writer = new FileWriter(fileName);
         PrintWriter pw = new PrintWriter(writer);
